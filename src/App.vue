@@ -1,7 +1,6 @@
 <template>
   <NavBar></NavBar>
   <JumbotronAccueil></JumbotronAccueil>
-  <About></About>
   <Horaire></Horaire>
   <ReservationForm></ReservationForm>
   <Contact></Contact>
@@ -15,16 +14,19 @@ import NavBar from './components/NavBar.vue'
 import ReservationForm from './components/ReservationForm1.vue'
 import JumbotronAccueil from './components/JumbotronAccueil.vue'
 import Horaire from './components/Horaire.vue'
-import About from './components/About.vue'
+
+
 
 
 export default {
   name: 'App',
   components: {
-    NavBar, JumbotronAccueil, ReservationForm, Contact, Footer, Horaire, About, 
-  }
+    NavBar, JumbotronAccueil, ReservationForm, Contact, Footer, Horaire   
+  },
+
 }
 </script>
+
 
 <style>
 #app {
