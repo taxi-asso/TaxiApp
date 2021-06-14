@@ -6,7 +6,7 @@
                 <div class="home-content">
                     <h3 class="home-title">Bienvenue sur le site ExpressTaxi</h3>
                         <p class="home-desc">
-                            Réservez votre taxi sur ExpressTaxi en quelques clics
+                            Réservez votre taxi sur ExpressTaxi en quelques clic
                         </p>
                         <button class="btn button">Réserver</button>
                 </div>
