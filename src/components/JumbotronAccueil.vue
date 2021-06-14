@@ -8,7 +8,7 @@
                         <p class="home-desc">
                             Réservez votre taxi sur ExpressTaxi en quelques clic
                         </p>
-                        <button class="btn-button">Réserver</button>
+                        <button class="btn button">Réserver</button>
                 </div>
             </div>
         </div>    
