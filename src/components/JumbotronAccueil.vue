@@ -17,8 +17,6 @@
 
 <script>
 
-var button = document.getElementedById("Réserver");
-
 button.onlick = "focusScrollMethod()" focusScrollMethod = function getFocus() {
   document.getElementById("espaceReservation").focus({preventScroll:false});
 }
