@@ -17,10 +17,6 @@
 
 <script>
 
-button.onlick = "focusScrollMethod()" focusScrollMethod = function getFocus() {
-  document.getElementById("espaceReservation").focus({preventScroll:false});
-}
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
