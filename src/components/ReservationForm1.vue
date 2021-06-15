@@ -59,7 +59,7 @@ const GOOGLE_MAPS_API_KEY = 'AIzaSyDuV8SuOHsH8zMcBb4GOOcJSR1PVF3z6FE'
 
 /* End import map */
 export default {
-  name: 'App',
+  name: 'Map',
  setup(){
     const { coords } = useGeolocation()
     const currPos = computed(() => ({
