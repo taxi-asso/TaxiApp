@@ -1,16 +1,15 @@
 <template>
   <div class="login">
-      <h1> Connection </h1>
-      <form @submit.prevent="Login">
+      <h1> Inscription </h1>
+      <form @submit.prevent="Register">
         <div class="form-group">
             <label for="exampleInputEmail1">Numero telephone </label>
             <input type="number" v-model="numTel" class="form-control" id="numTelUser" aria-describedby="numTel" placeholder="Enter your phone number">
             <small id="emailHelp" class="form-text text-muted">We'll never share your phone number with anyone else.</small>
         </div>     
-        <div id="recaptcha-container"> </div>
-        <button type="submit" value="Login" class="btn btn-primary"> Se connecter </button>
+    
+        <button type="submit" value="Register" class="btn btn-primary"> Se connecter </button>
         </form>
-
   </div>
 </template>
 
@@ -22,35 +21,17 @@ export default {
         const numTel = ref("");
         const appVerifier = window.recaptchaVerifier;
 
-        const Login = () => {
+        const Register = () => {
             firebase
                 .auth()
-                .signInWithPhoneNumber(numTel.value, appVerifier)
+                .createUser
                 .then(((confirmationResult) => {
                 window.confirmationResult = confirmationResult;
                 // ...
                 }))
                 .catch((error => alert(error.message)));
         }
-
-        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-    
-
-        //Code de connexion avec code de verification :
-        
-        const code = UserCodeFromInput();
-        confirmationResult.confirm(code).then((result) => {
-        // User signed in successfully.
-        const user = result.user;
-        // ...
-        }).catch((error) => {
-        // User couldn't sign in (bad verification code?)
-            alert("bad verification code");
-        });
-    
     }
-
-    
 }
 </script>
 
