@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 
-                <div class="col">
+                <div class="col-sm-3">
                     <div class="p-3 border bg-light">
                         <div ref="mapDiv" style="width: 100%; height: 50vh" /> 
                     </div>
@@ -155,6 +155,17 @@ input[type='number'] {
   width: 200px;
   margin-top: 20px;
   margin-left: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  
+  .réservation{
+    height: 850px;
+    background-image:url('../assets/Accueil/ville.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
 }
 
 </style> 
