@@ -1,59 +1,40 @@
 <template>
-  <div class="login">
-      <h1> Connection </h1>
-      <form @submit.prevent="Login">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Numero telephone </label>
-            <input type="number" v-model="numTel" class="form-control" id="numTelUser" aria-describedby="numTel" placeholder="Enter your phone number">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your phone number with anyone else.</small>
-        </div>     
-        <div id="recaptcha-container"> </div>
-        <button type="submit" value="Login" class="btn btn-primary"> Se connecter </button>
-        </form>
+  <div class="connexion"> creer compte de Connexion </div>
+  <form @submit.prevent="Login">
+      <input type="text" placeholder="Email" v-model="email" /> 
+      <input type="password" placeholder="Password" v-model="password"/> 
+      <input type="submit" value="Login" /> 
 
-  </div>
+      <p> Vous possedez un compte ? <router-link to="/Authentification"> Connectez-vous ! </router-link> </p>
+  </form>
 </template>
 
 <script>
-import { ref } from 'vue';
 import firebase from 'firebase';
+import { ref } from 'vue';
+
+
 export default {
     setup() {
-        const numTel = ref("");
-        const appVerifier = window.recaptchaVerifier;
+        const email = ref("");
+        const password = ref("");
 
-        const Login = () => {
+        const CreationCompte = () => {
             firebase
                 .auth()
-                .signInWithPhoneNumber(numTel.value, appVerifier)
-                .then(((confirmationResult) => {
-                window.confirmationResult = confirmationResult;
-                // ...
-                }))
-                .catch((error => alert(error.message)));
+                .createUserWithEmailAndPassword(email.value, password.value)
+                .then(user => {
+                    alert(user);
+                })
+                .catch(err => alert(err.message));
         }
 
-        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-    
-
-        //Code de connexion avec code de verification :
+        return {
+            email, password, CreationCompte
+        }
         
-        const code = UserCodeFromInput();
-        confirmationResult.confirm(code).then((result) => {
-        // User signed in successfully.
-        const user = result.user;
-        // ...
-        }).catch((error) => {
-        // User couldn't sign in (bad verification code?)
-            alert("bad verification code");
-        });
-    
     }
 
-    
 }
 </script>
 
-<style>
-
-</style>

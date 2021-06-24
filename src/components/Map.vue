@@ -1,74 +1,9 @@
-<template>
-   <!--Réservation-->
-    <section class="sections réservation">
-        <div class="overplay">
-            <div class="container-3">
-                <div class="section-header" id="espaceReservation">
-                    <h2 class="section-title">Réservation</h2>
-                    <div class="line"><span></span></div>
-                    <p class ="lead home-desc">
-                        Réservez votre taxi en moins d'une minute.
-                    </p>
-                </div>
-            </div>
-
-            <div class="container px-4">
-                <div class="row gx-5">
-                    <div class="col">
-                    <div class="p-3 border bg-light">
-                        <form class="row g-3">
-                            
-                            <div class="col-12">
-                                <label for="inputAddress" class="form-label">Départ</label>
-                                <input type="text" class="form-control" id="search_input" placeholder="Type address..." />
-                            </div>
-                            <div class="col-12">
-                                <label for="inputAddress2" class="form-label">Arrivée</label>
-                                <input type="text" class="form-control" id="search_input" placeholder="Type destination..." />
-                                
-                            </div>
-                            <div class="col-12">
-                                <button type="button" class="btn btn-secondary btn-sm"> Programmer une réservation </button>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary"> Reserver maintenant </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="col">
-                    <div class="p-3 border bg-light">
-                      <div>
-                        <input
-                          id="origin-input"
-                          class="controls"
-                          type="text"
-                          placeholder="Enter an origin location"
-                        />
-
-                        <input
-                          id="destination-input"
-                          class="controls"
-                          type="text"
-                          placeholder="Enter a destination location"
-                        />
-
-                        <input
-                          id="pac-input"
-                          class="controls"
-                          type="text"
-                          placeholder="Enter a destination location"
-                        />
-
-                        </div>
-                      </div>
-                      <div ref="mapDiv" style="width: 100%; height: 50vh" />  
-                    </div>
-                </div>
-            </div>
-            </div>
-    </section>
+<template> 
+    <div class="col">
+        <div class="p-3 border bg-light">
+            <div ref="mapDiv" style="width: 100%; height: 50vh" />  
+        </div>
+    </div>
 </template>
 
 
@@ -268,6 +203,12 @@ export default {
   }
 
    // Fin depot
+
+
+
+
+
+
 
     return { currPos, otherPos, distance, mapDiv }
   }

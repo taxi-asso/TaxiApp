@@ -1,0 +1,37 @@
+<template>
+  <NavBar></NavBar>
+  
+  <Footer></Footer> 
+</template>
+
+<script>
+//import Connexion from './components/Connexion.vue'
+import Contact from '../components/Contact.vue'
+import Footer from '../components/Footer.vue'
+import NavBar from '../components/NavBar.vue'
+import Horaire from '../components/Horaire.vue'
+
+
+
+
+
+export default {
+  name: 'App',
+  components: {
+    NavBar, Contact, Footer, Horaire,  
+  },
+
+}
+</script>
+
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>

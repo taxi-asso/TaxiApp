@@ -1,44 +1,53 @@
 <template>
-  <NavBar></NavBar>
-  <connexion><connexion>
-  <JumbotronAccueil></JumbotronAccueil>
-  <Horaire></Horaire>
-  <ReservationForm></ReservationForm>
-  <Contact></Contact>
-  <Footer></Footer> 
+  <!-- <router-view /> -->
+  <div>
+    <nav class="navbar navbar-dark bg-dark justify-content-between flex-nowrap flex-row">
+      <div class="container">
+        <a class="navbar-brand float-left">Firebase Vue CRUD Example</a>
+        <ul class="nav navbar-nav flex-row float-right">
+          <li class="nav-item">
+            <router-link class="nav-link pr-3" to="/">Add User</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/list">View Users</router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <router-view></router-view>
+    </div>
+  </div>
+  
 </template>
 
 <script>
-import Connexion from './components/Connexion.vue'
-import Contact from './components/Contact.vue'
-import Footer from './components/Footer.vue'
-import NavBar from './components/NavBar.vue'
-import ReservationForm from './components/ReservationForm1.vue'
-import JumbotronAccueil from './components/JumbotronAccueil.vue'
-import Horaire from './components/Horaire.vue'
-import Connexion from './components/Connexion.vue'
-
-
+import {onBeforeMount} from 'vue';
+import {useRouter, useRoute} from 'vue-router';
+import firebase from 'firebase';
 
 
 export default {
-  name: 'App',
-  components: {
-    NavBar, JumbotronAccueil, ReservationForm, Contact, Footer, Horaire,
-    Connexion   
-  },
+  setup() {
+    const router = useRouter();
+    const route = useRoute();
 
+    onBeforeMount(() => {
+      firebase.auth().onAuthStateChanged((user) => {
+        if(!user){
+          router.replace('/Connexion');
+        }
+        else if (route.path == "/Connexion" || route.path == "/register") {
+          route.replace("/");
+        }
+      });
+    }); 
+  }
 }
 </script>
 
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
