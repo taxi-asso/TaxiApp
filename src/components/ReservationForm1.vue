@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 
-                <div class="col">
+                <div class="col-sm-3">
                     <div class="p-3 border bg-light">
                       <div>
                         <input
