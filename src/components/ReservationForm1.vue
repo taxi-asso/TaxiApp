@@ -306,8 +306,15 @@ input[type='number'] {
   margin-left: 10px;
 }
 
+@media only screen and (max-width: 600px) {
+  
+  .réservation{
+    height: 850px;
+    background-image:url('../assets/Accueil/ville.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+}
+
 </style> 
-
-
-
-

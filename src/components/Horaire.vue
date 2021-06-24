@@ -1,68 +1,98 @@
 <template>
     <!--Horaires-->
     <section class="sections times">
-        <div class="container-3">
-            <div class="section-header">
-                <h2 class="section-title">Les horaires</h2>
-                <div class="line"><span></span></div>
-                <p class ="lead home-desc">
-                    Voici nos horaires auxquelles nous sommes présents durant cette journée.
-                </p>
-            </div>
+
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal">Les horaires</h1>
+            <p class="fs-5 text-muted">Voici les horaires auxquelles nous sommes actifs durant la semaine.</p>
         </div>
 
-        <div class="row">
-            <div class="col-md-4 col-xs-12">
-                <div class="serv">
-                    <i class="fa fa-calendar fa-lg"></i>
-                    <h3 class="serv-desc">Lundi</h3>
-                    <p class="serv-title">✔️: Présent de 5 heures à 23 heures</p>
-                    <p class="serv-title"> ❌: Fermé de 23 heures à 5 heures</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-xs-12">
-                <div class="serv">
-                    <i class="fa fa-calendar fa-lg"></i>
-                    <h3 class="serv-desc">Mardi</h3>
-                    <p class="serv-title">✔️: Présent de 5 heures à 23 heures</p>
-                    <p class="serv-title"> ❌: Fermé de 23 heures à 5 heures</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-xs-12">
-                <div class="serv">
-                    <i class="fa fa-calendar fa-lg"></i>
-                    <h3 class="serv-desc">Mercredi</h3>
-                   <p class="serv-title">✔️: Présent de 5 heures à 23 heures</p>
-                    <p class="serv-title"> ❌: Fermé de 23 heures à 5 heures</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-4 col-xs-12">
-                <div class="serv">
-                    <i class="fa fa-calendar fa-lg"></i>
-                    <h3 class="serv-desc">Jeudi</h3>
-                    <p class="serv-title">✔️: Présent de 5 heures à 23 heures</p>
-                    <p class="serv-title"> ❌: Fermé de 23 heures à 5 heures</p>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Lundi</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                                <li>✔️: Présent de 5 heures à 23 heures</li>
+                                <li>❌: Fermé de 23 heures à 5 heures</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12">
-                <div class="serv">
-                    <i class="fa fa-calendar fa-lg"></i>
-                    <h3 class="serv-desc">Vendredi</h3>
-                    <p class="serv-title">✔️: Présent de 5 heures à 23 heures </p>
-                    <p class="serv-title"> ❌: Fermé de 23 heures à 5 heures</p>
+
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Mardi</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                                <li>✔️: Présent de 5 heures à 23 heures</li>
+                                <li>❌: Fermé de 23 heures à 5 heures</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12">
-                <div class="serv">
-                    <i class="fa fa-calendar fa-lg"></i>
-                    <h3 class="serv-desc">Samedi</h3>
-                    <p class="serv-title">✔️: Présent de 5 heures à 23 heures</p>  
-                    <p class="serv-title"> ❌: Fermé de 23 heures à 5 heures</p>
+
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Mercredi</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                                <li>✔️: Présent de 5 heures à 23 heures</li>
+                                <li>❌: Fermé de 23 heures à 5 heures</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Jeudi</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                                <li>✔️: Présent de 5 heures à 23 heures</li>
+                                <li>❌: Fermé de 23 heures à 5 heures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Vendredi</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                                <li>✔️: Présent de 5 heures à 23 heures</li>
+                                <li>❌: Fermé de 23 heures à 5 heures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Samedi</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                                <li>✔️: Présent de 5 heures à 23 heures</li>
+                                <li>❌: Fermé de 23 heures à 5 heures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 </template>

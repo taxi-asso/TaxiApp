@@ -10,9 +10,8 @@ app.component()
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button class="btn btn-primary me-md-2" type="button"> Se Connecter</button>
         </div>
+
     </nav>
-</div>
- 
 </template>
 
 <script>
@@ -25,7 +24,6 @@ export default {
     a {
         color: whitesmoke;
         text-decoration: none;
-        margin: 1% 4%;
     }
    
    h5{
