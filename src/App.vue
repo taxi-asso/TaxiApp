@@ -1,10 +1,27 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <NavBar></NavBar>
+  <JumbotronAccueil></JumbotronAccueil>
+  <Horaire></Horaire>
+  <ReservationForm></ReservationForm>
+  <Contact></Contact>
+  <Footer></Footer> 
 </template>
+
+<script>
+import Contact from './components/Contact.vue'
+import Footer from './components/Footer.vue'
+import NavBar from './components/NavBar.vue'
+import ReservationForm from './components/ReservationForm1.vue'
+import JumbotronAccueil from './components/JumbotronAccueil.vue'
+import Horaire from './components/Horaire.vue'
+export default {
+  name: 'App',
+  components: {
+    NavBar, JumbotronAccueil, ReservationForm, Contact, Footer, Horaire   
+  },
+}
+</script>
+
 
 <style>
 #app {
@@ -13,18 +30,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  margin-top: 1px; 
 }
 </style>
