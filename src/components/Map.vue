@@ -1,16 +1,9 @@
-<template> 
-    <div class="col">
-        <div class="p-3 border bg-light">
-            <div ref="mapDiv" style="width: 100%; height: 50vh" />  
-        </div>
-    </div>
+<template>
+  <div ref="mapDiv" style="width: 100%; height: 50vh" />  
 </template>
 
 
 <script>
-
-
-
 /* For the map */
 /* eslint-disable no-undef */
 import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
@@ -18,7 +11,6 @@ import { useGeolocation } from '../useGeolocation'
 import { Loader } from '@googlemaps/js-api-loader'
 const GOOGLE_MAPS_API_KEY = 'AIzaSyDuV8SuOHsH8zMcBb4GOOcJSR1PVF3z6FE'
 /* End import map */
-
 
 export default {
   name: 'Map',
@@ -44,18 +36,8 @@ export default {
       await loader.load()
       map.value = new google.maps.Map(mapDiv.value, {
         center: currPos.value,
-        zoom: 7
+        zoom: 6
       })
-
-
-      clickListener = map.value.addListener(
-        'click',
-        ({ latLng: { lat, lng } }) =>
-          (otherPos.value = { lat: lat(), lng: lng() })
-      )
-
-      new AutocompleteDirectionsHandler(map);
-
     })
 
 
@@ -75,6 +57,7 @@ export default {
         })
     })
 
+//Avoir la distance entre deux point : 
 
     const haversineDistance = (pos1, pos2) => {
       const R = 3958.8 // Radius of the Earth in miles
@@ -103,152 +86,10 @@ export default {
         : haversineDistance(currPos.value, otherPos.value)
     )
 
-
-
-   // Depot du truc pour les routes
-
-    class AutocompleteDirectionsHandler {
-    map;
-    originPlaceId;
-    destinationPlaceId;
-    travelMode;
-    directionsService;
-    directionsRenderer;
-    constructor(map) {
-      this.map = map;
-      this.originPlaceId = "";
-      this.destinationPlaceId = "";
-      this.travelMode = google.maps.TravelMode.WALKING;
-      this.directionsService = new google.maps.DirectionsService();
-      this.directionsRenderer = new google.maps.DirectionsRenderer();
-      this.directionsRenderer.setMap(map);
-      const originInput = document.getElementById("origin-input");
-      const destinationInput = document.getElementById("destination-input");
-      const modeSelector = document.getElementById("mode-selector");
-      const originAutocomplete = new google.maps.places.Autocomplete(originInput);
-      // Specify just the place data fields that you need.
-      originAutocomplete.setFields(["place_id"]);
-      const destinationAutocomplete = new google.maps.places.Autocomplete(
-        destinationInput
-      );
-      // Specify just the place data fields that you need.
-      destinationAutocomplete.setFields(["place_id"]);
-      this.setupClickListener(
-        "changemode-walking",
-        google.maps.TravelMode.WALKING
-      );
-      this.setupClickListener(
-        "changemode-transit",
-        google.maps.TravelMode.TRANSIT
-      );
-      this.setupClickListener(
-        "changemode-driving",
-        google.maps.TravelMode.DRIVING
-      );
-      this.setupPlaceChangedListener(originAutocomplete, "ORIG");
-      this.setupPlaceChangedListener(destinationAutocomplete, "DEST");
-      this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-      this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
-        destinationInput
-      );
-      this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
-    }
-    // Sets a listener on a radio button to change the filter type on Places
-    // Autocomplete.
-    setupClickListener(id, mode) {
-      const radioButton = document.getElementById(id);
-      radioButton.addEventListener("click", () => {
-        this.travelMode = mode;
-        this.route();
-      });
-    }
-    setupPlaceChangedListener(autocomplete, mode) {
-      autocomplete.bindTo("bounds", this.map);
-      autocomplete.addListener("place_changed", () => {
-        const place = autocomplete.getPlace();
-
-        if (!place.place_id) {
-          window.alert("Please select an option from the dropdown list.");
-          return;
-        }
-
-        if (mode === "ORIG") {
-          this.originPlaceId = place.place_id;
-        } else {
-          this.destinationPlaceId = place.place_id;
-        }
-        this.route();
-      });
-    }
-    route() {
-      if (!this.originPlaceId || !this.destinationPlaceId) {
-        return;
-      }
-      const me = this;
-      this.directionsService.route(
-        {
-          origin: { placeId: this.originPlaceId },
-          destination: { placeId: this.destinationPlaceId },
-          travelMode: this.travelMode,
-        },
-        (response, status) => {
-          if (status === "OK") {
-            me.directionsRenderer.setDirections(response);
-          } else {
-            window.alert("Directions request failed due to " + status);
-          }
-        }
-      );
-    }
-  }
-
    // Fin depot
-
-
-
-
-
-
-
     return { currPos, otherPos, distance, mapDiv }
   }
 }
 
 </script>
-
-
-<style scoped>
-
-#mapid { height: 180px; }
-
-body{
-    font-family: lucida Sans;
-}
-
-.sections{
-    padding: 20px 0;
-}
-.réservation{
-    height: 600px;
-    background-image:url('../assets/Accueil/ville.jpg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-button {
-    padding-top: 1%;
-    margin-top: 2%;
-}
-
-input[type='number'] {
-  width: 200px;
-  margin-top: 20px;
-  margin-left: 10px;
-}
-
-</style> 
-
-
-
 

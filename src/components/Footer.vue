@@ -5,7 +5,7 @@
                 <div class="footer-col">
                     <h4>Nos services</h4>
                     <ul>
-                        <li><a href="#">Les horraires</a></li>
+                        <li><a href="#">Les horaires</a></li>
                         <li><a href="#">Les tarifs</a></li>
                     </ul>
                 </div>
